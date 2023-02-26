@@ -67,15 +67,14 @@ int main() {
            char *args[] = {"pwdCommand/pwdCommand2",NULL};
            size_t f = fork();
             if(f == 0){
-                printf("i m child process for pwd command\n");
+                printf("i m child process for pwd command (pid process %llu)\n",getpid());
                 execvp(args[0],args);
             }
         }
         else {
             printf("impossivel\n");
         }
-        setvbuf(stdin, NULL, _IOLBF, BUFFER);
-        printf("sair: ");
+        printf("\nsair: ");
         scanf(" %c",&saida);
         getchar(); //remove o \n no final
         if(saida == 'y' || saida == 's'){
