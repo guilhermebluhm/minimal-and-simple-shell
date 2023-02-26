@@ -64,9 +64,8 @@ int main() {
             }
         }
         else if(strcmp(token_extracao,"fork") == 0){
-            char *args[] = {"C:\\Users\\Samsung\\CLionProjects\\so1\\pwdCommand\\pwd",NULL};
-//            size_t f = fork();
-            size_t f = 0;
+           char *args[] = {"pwdCommand/pwdCommand2",NULL};
+           size_t f = fork();
             if(f == 0){
                 printf("i m child process for pwd command\n");
                 execvp(args[0],args);
@@ -77,11 +76,12 @@ int main() {
         }
         setvbuf(stdin, NULL, _IOLBF, BUFFER);
         printf("sair: ");
-        scanf("%c", &saida);
+        scanf(" %c",&saida);
+        getchar(); //remove o \n no final
         if(saida == 'y' || saida == 's'){
             break;
         }
-
+        free(path);
     }
     return 0;
 }
